@@ -24,7 +24,7 @@ def last_original():
     return np.frombuffer(data,np.uint8).reshape(2160,2880,3)
 
 def main():
-    comp=read(N/'composition_complete.json');report={'frames_required':3173,'duration_required':3173/24,'files':{}};original=pcm(next(R.glob('*4K*.mp4')),506);wanted=set(comp['review_frame_indices']);reference_end=last_original()
+    comp=read(DEST/'成片合成记录.json');report={'frames_required':3173,'duration_required':3173/24,'files':{}};original=pcm(next(R.glob('*4K*.mp4')),506);wanted=set(comp['review_frame_indices']);reference_end=last_original()
     for name,wh in zip(FILMS,[(3840,2160),(1440,1080)]):
         path=DEST/name;count=bad=0;maxerr=0;end=None;page=[];pages=[];seen=[];folder=DEST/'实际成片检查';folder.mkdir(exist_ok=True)
         def flush():

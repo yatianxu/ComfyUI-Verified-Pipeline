@@ -147,9 +147,14 @@ class VerifiedPipelineExecute:
                         cwd=profile['project_root'],stdout=stream,stderr=subprocess.STDOUT,env=env,
                         creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
                 import psutil
-                starting.update(pid=proc.pid,process_created=psutil.Process(proc.pid).create_time())
+                starting['pid']=proc.pid
+                try:starting['process_created']=psutil.Process(proc.pid).create_time()
+                except psutil.NoSuchProcess:pass  # A very small adapter may already be complete.
                 latest=read(state/'latest.json')
-                if latest.get('run_id')==run_id and latest.get('state')=='starting':save(state/'latest.json',starting)
+                if latest.get('run_id')==run_id and latest.get('state')=='starting':
+                    if proc.poll() is not None:
+                        starting.update(state='failed',message='Adapter exited without writing terminal status')
+                    save(state/'latest.json',starting)
             except Exception:
                 save(state/'latest.json',{**starting,'state':'failed','message':'Controller could not be started'})
                 raise
