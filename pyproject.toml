@@ -1,0 +1,16 @@
+[project]
+name = "verified-pipeline"
+version = "0.1.0"
+description = "Generic ComfyUI stage controls for verified, resumable project adapters."
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = ["psutil>=5.9"]
+classifiers = ["Operating System :: OS Independent"]
+
+[project.urls]
+Repository = "https://github.com/yatianxu/ComfyUI-Verified-Pipeline"
+
+[tool.comfy]
+PublisherId = "yatianxu"
+DisplayName = "Verified Pipeline"
+

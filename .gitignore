@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+config.local.json
+*.local.json
+private/
+runs/
+*.mp4
+*.mov
+*.png
+*.jpg
+*.npz
+*.safetensors
+*.log
+*.zip

@@ -1,0 +1,198 @@
+{
+  "id": "1d50ee58-2c86-4ac3-8889-8f51a826c672",
+  "revision": 0,
+  "last_node_id": 4,
+  "last_link_id": 3,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "VerifiedPipelineSettings",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        380,
+        260
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "next_stage",
+          "type": "VERIFIED_PIPELINE",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Settings - choose local profile",
+      "properties": {
+        "Node name for S&R": "VerifiedPipelineSettings"
+      },
+      "widgets_values": [
+        "custom_nodes/ComfyUI-Verified-Pipeline/examples/demo_project/profile.json",
+        1,
+        2,
+        false,
+        false
+      ]
+    },
+    {
+      "id": 2,
+      "type": "VerifiedPipelineStage",
+      "pos": [
+        420,
+        0
+      ],
+      "size": [
+        380,
+        120
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "plan",
+          "type": "VERIFIED_PIPELINE",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "next_stage",
+          "type": "VERIFIED_PIPELINE",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "1 - Create text artifact",
+      "properties": {
+        "Node name for S&R": "VerifiedPipelineStage"
+      },
+      "widgets_values": [
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "type": "VerifiedPipelineStage",
+      "pos": [
+        840,
+        0
+      ],
+      "size": [
+        380,
+        120
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "plan",
+          "type": "VERIFIED_PIPELINE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "next_stage",
+          "type": "VERIFIED_PIPELINE",
+          "links": [
+            3
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "2 - Verify SHA-256",
+      "properties": {
+        "Node name for S&R": "VerifiedPipelineStage"
+      },
+      "widgets_values": [
+        2
+      ]
+    },
+    {
+      "id": 4,
+      "type": "VerifiedPipelineExecute",
+      "pos": [
+        1260,
+        0
+      ],
+      "size": [
+        380,
+        480
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "plan",
+          "type": "VERIFIED_PIPELINE",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "run_status",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "title": "Execute - live progress",
+      "properties": {
+        "Node name for S&R": "VerifiedPipelineExecute"
+      },
+      "widgets_values": [
+        "run"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "VERIFIED_PIPELINE"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "VERIFIED_PIPELINE"
+    ],
+    [
+      3,
+      3,
+      0,
+      4,
+      0,
+      "VERIFIED_PIPELINE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8,
+      "offset": [
+        50,
+        100
+      ]
+    }
+  },
+  "version": 0.4
+}

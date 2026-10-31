@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "project_root": ".",
+  "runner": "runner.py",
+  "state_directory": "runs",
+  "stages": ["Create a deterministic text artifact", "Verify the artifact SHA-256"]
+}

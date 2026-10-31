@@ -1,0 +1,42 @@
+{
+  "1": {
+    "class_type": "VerifiedPipelineSettings",
+    "inputs": {
+      "profile_path": "custom_nodes/ComfyUI-Verified-Pipeline/examples/demo_project/profile.json",
+      "start_stage": 1,
+      "end_stage": 2,
+      "rebuild_outputs": false,
+      "full_verify": false
+    }
+  },
+  "2": {
+    "class_type": "VerifiedPipelineStage",
+    "inputs": {
+      "plan": [
+        "1",
+        0
+      ],
+      "stage_index": 1
+    }
+  },
+  "3": {
+    "class_type": "VerifiedPipelineStage",
+    "inputs": {
+      "plan": [
+        "2",
+        0
+      ],
+      "stage_index": 2
+    }
+  },
+  "4": {
+    "class_type": "VerifiedPipelineExecute",
+    "inputs": {
+      "plan": [
+        "3",
+        0
+      ],
+      "action": "run"
+    }
+  }
+}
